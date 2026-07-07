@@ -1,0 +1,7 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+ESP32Servo
+U8g2_for_Adafruit_GFX
+Adafruit_SSD1306_72x40
+ESP32_MCPWM

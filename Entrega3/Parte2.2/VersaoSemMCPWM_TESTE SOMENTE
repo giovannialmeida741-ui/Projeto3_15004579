@@ -1,7 +1,7 @@
 /*
   TESTE DE DIAGNÓSTICO - sem MCPWM, só para confirmar que o motor,
   o driver A4988 e a fiação estão corretos.
- 
+ só colar no lugar do .ino
   Gera o pulso de STEP manualmente com digitalWrite + delayMicroseconds.
  
  */

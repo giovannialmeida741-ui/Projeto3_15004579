@@ -43,16 +43,16 @@ Parte 1 — LEDs com LEDC
 ## Parte 2.1, Servo + potenciômetro
 
 - Biblioteca `ESP32Servo`.
-- Potenciômetro no GPIO34 (ADC), servo no GPIO18 (PWM).
+- Potenciômetro no GPIO34 (ADC), servo (fio laranja) no GPIO18 (PWM).
 - A leitura do ADC (0–4095) é convertida em ângulo (0–180°), controlando
   diretamente a posição do servo conforme o usuário gira o potenciômetro.
 - Mensagens periódicas via serial informando leitura do ADC, ângulo e duty cycle
   equivalente.
-
+  
 ## Parte 2.2, Aplicação própria com MCPWM (motor DC)
 
-Aplicação: **controle de velocidade e sentido de rotação de um motor de
-passo**, usando a biblioteca nativa **MCPWM** para gerar o trem de pulsos do
+Aplicação: controle de velocidade e sentido de rotação de um motor de
+passo, usando a biblioteca nativa **MCPWM** para gerar o trem de pulsos do
 pino `STEP` (a frequência do MCPWM define a velocidade/passos por segundo).
 
 Recursos incorporados (além do PWM via MCPWM):
@@ -72,8 +72,10 @@ Ligações:
 - GPIO27 → `STEP` do A4988 (pulsos gerados via MCPWM)
 - GPIO14 → `DIR` do A4988 (sentido de rotação)
 - GPIO34 → potenciômetro (velocidade)
-- GPIO4 → botão (para GND, `INPUT_PULLUP`) — troca de sentido
+- GPIO4 → chave slide switch — troca de sentido
 - GPIO25 → buzzer
 - GPIO21 (SDA) / GPIO22 (SCL) → display OLED
 - `SLEEP` e `RESET` do A4988 ligados entre si (mantém o driver ativo)
 - `1A`/`1B`/`2A`/`2B` do A4988 → bobinas do motor de passo (`wokwi-stepper-motor`)
+
+Obs: a parte 2.2 nao funcionou adequadamente, pelo que li MCPWM não funciona direito com o driver A4988 que vem no wokwi, que eu tentie usar para controlar o motr de passo, eu deixei aqui um codigo que teste que mostra que as ligações estao corretas, e uma versao sem mcpwm, com ela o motor gira, mas com a versão final tudo funciona, interrupções, buzzer, display, menos o motor, o display mostra os valores do adc sendo processados corretamente, e exibe a troca de sentido com a chave slide switch
